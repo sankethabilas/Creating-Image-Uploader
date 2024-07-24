@@ -1,5 +1,6 @@
-function Uploader() {
-  var img = document.getElementById("imguploader").value;
+function uploader() {
+
+  var img = document.getElementById("imguploader");
 
   var f = new FormData();
 
@@ -10,9 +11,10 @@ function Uploader() {
   r.onreadystatechange = function () {
     if (r.readyState == 4 && r.status == 200) {
       var t = r.responseText;
-      alert(t);
+      document.getElementById("i").src=t;
     }
   }
-  r.open("POST", "process.php", true);
+  r.open("POST","process.php", true);
   r.send(f);
 }
+
